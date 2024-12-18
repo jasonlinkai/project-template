@@ -10,9 +10,7 @@
             "description": ""
           }
         },
-        "tags": [
-          "App"
-        ]
+        "tags": ["App"]
       }
     },
     "/users": {
@@ -24,9 +22,7 @@
             "description": "Retrieve all users"
           }
         },
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       },
       "post": {
         "operationId": "UsersController_createUser",
@@ -46,9 +42,7 @@
             "description": "Create a new user"
           }
         },
-        "tags": [
-          "Users"
-        ]
+        "tags": ["Users"]
       }
     }
   },
@@ -83,10 +77,7 @@
             "example": "john.doe@example.com"
           }
         },
-        "required": [
-          "name",
-          "email"
-        ]
+        "required": ["name", "email"]
       }
     }
   }

@@ -6,6 +6,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "baseUrl": "./",
     "declaration": true, // Generate .d.ts files
     "outDir": "./dist" // Output directory
   },

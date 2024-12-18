@@ -1,4 +1,4 @@
 export type TResponse<T = any> = {
-  status: string;
-  data: T;
+  status: string
+  data: T
 }

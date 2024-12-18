@@ -6,7 +6,8 @@
   ],
   "scripts": {
     "build": "lerna run build --stream",
-    "format": "lerna run format"
+    "format": "lerna run format --stream",
+    "lint": "lerna run lint --stream"
   },
   "dependencies": {},
   "devDependencies": {
