@@ -7,7 +7,7 @@ import { greeting } from 'shared'
 greeting()
 
 const api = new Api({
-  baseUrl: process.env.NEXT_PUBLIC_API_URL,
+  baseUrl: process.env.NEXT_PUBLIC_API_URL
 })
 
 const requestGetHello = async () => {

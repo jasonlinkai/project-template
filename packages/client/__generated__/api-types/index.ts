@@ -70,7 +70,7 @@ export enum ContentType {
   Json = 'application/json',
   FormData = 'multipart/form-data',
   UrlEncoded = 'application/x-www-form-urlencoded',
-  Text = 'text/plain',
+  Text = 'text/plain'
 }
 
 export class HttpClient<SecurityDataType = unknown> {
@@ -85,7 +85,7 @@ export class HttpClient<SecurityDataType = unknown> {
     credentials: 'same-origin',
     headers: {},
     redirect: 'follow',
-    referrerPolicy: 'no-referrer',
+    referrerPolicy: 'no-referrer'
   }
 
   constructor(apiConfig: ApiConfig<SecurityDataType> = {}) {
@@ -151,7 +151,7 @@ export class HttpClient<SecurityDataType = unknown> {
         )
         return formData
       }, new FormData()),
-    [ContentType.UrlEncoded]: (input: any) => this.toQueryString(input),
+    [ContentType.UrlEncoded]: (input: any) => this.toQueryString(input)
   }
 
   protected mergeRequestParams(
@@ -165,8 +165,8 @@ export class HttpClient<SecurityDataType = unknown> {
       headers: {
         ...(this.baseApiParams.headers || {}),
         ...(params1.headers || {}),
-        ...((params2 && params2.headers) || {}),
-      },
+        ...((params2 && params2.headers) || {})
+      }
     }
   }
 
@@ -224,7 +224,7 @@ export class HttpClient<SecurityDataType = unknown> {
           ...(requestParams.headers || {}),
           ...(type && type !== ContentType.FormData
             ? { 'Content-Type': type }
-            : {}),
+            : {})
         },
         signal:
           (cancelToken
@@ -233,7 +233,7 @@ export class HttpClient<SecurityDataType = unknown> {
         body:
           typeof body === 'undefined' || body === null
             ? null
-            : payloadFormatter(body),
+            : payloadFormatter(body)
       }
     ).then(async (response) => {
       const r = response.clone() as HttpResponse<T, E>
@@ -274,7 +274,7 @@ export class HttpClient<SecurityDataType = unknown> {
  * API documentation
  */
 export class Api<
-  SecurityDataType extends unknown,
+  SecurityDataType extends unknown
 > extends HttpClient<SecurityDataType> {
   /**
    * No description
@@ -287,7 +287,7 @@ export class Api<
     this.request<void, any>({
       path: `/`,
       method: 'GET',
-      ...params,
+      ...params
     })
 
   users = {
@@ -302,7 +302,7 @@ export class Api<
       this.request<void, any>({
         path: `/users`,
         method: 'GET',
-        ...params,
+        ...params
       }),
 
     /**
@@ -321,7 +321,7 @@ export class Api<
         method: 'POST',
         body: data,
         type: ContentType.Json,
-        ...params,
-      }),
+        ...params
+      })
   }
 }

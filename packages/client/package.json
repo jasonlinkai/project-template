@@ -7,7 +7,7 @@
     "build": "npm run generate:api-types && next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier . --config ./prettier.config.mjs --write",
+    "format": "prettier --config ../../prettier.config.mjs --write \"**/*.{ts,tsx,mjs,js,json,css}\"",
     "generate:api-types": "swagger-typescript-api -p ../server/swagger.json -o ./__generated__/api-types -n index.ts"
   },
   "dependencies": {

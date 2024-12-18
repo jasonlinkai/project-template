@@ -1,6 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
-import { TResponse } from '../typings/response';
+import { Controller, Get } from '@nestjs/common'
+import { AppService } from './app.service'
+import { TResponse } from '../typings/response'
 
 @Controller()
 export class AppController {
@@ -8,6 +8,6 @@ export class AppController {
 
   @Get()
   getHello(): TResponse<string> {
-    return this.appService.getHello();
+    return this.appService.getHello()
   }
 }
