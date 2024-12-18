@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 function builApiDocumentation(app: INestApplication) {
   const config = new DocumentBuilder()
@@ -21,8 +22,10 @@ function builApiDocumentation(app: INestApplication) {
 }
 
 function enableCorsForLocal(app: INestApplication) {
+  const configService = app.get(ConfigService);
+  const clientDomain = configService.get<string>('CLIENT_DOMAIN');
   app.enableCors({
-    origin: 'http://localhost:3000', // Frontend URL during development
+    origin: [clientDomain], // Frontend URL during development
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Allow cookies, Authorization headers, etc.
   });
